@@ -18,7 +18,7 @@ class UserRepository {
         // main Thread trigger
         // userDate.value = user;
         // background trigger
-        // userDate.postValue(user);
+        userDate.postValue(user);
     }
 
     fun getUser() : LiveData<User> {
