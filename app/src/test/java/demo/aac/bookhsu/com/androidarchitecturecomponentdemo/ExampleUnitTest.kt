@@ -1,8 +1,6 @@
 package demo.aac.bookhsu.com.androidarchitecturecomponentdemo
 
 import android.arch.core.executor.testing.InstantTaskExecutorRule
-import com.nhaarman.mockito_kotlin.mock
-import demo.aac.bookhsu.com.androidarchitecturecomponentdemo.model.User
 import demo.aac.bookhsu.com.androidarchitecturecomponentdemo.repo.UserRepository
 import demo.aac.bookhsu.com.androidarchitecturecomponentdemo.viewmodel.UserDetailViewModel
 import org.junit.Assert
@@ -41,9 +39,18 @@ class ExampleUnitTest {
         Assert.assertEquals(mUserDetailViewModel.getUserRepository().getUser().value?.name, "John")
         Assert.assertEquals(mUserDetailViewModel.getUserRepository().getUser().value?.age, 34)
 
-        val mock = mock<User> {
-            on{ }
+        // val mock = mock<Observer<String>>()
+        // mUserDetailViewModel.getUserRepository().getUser().observeForever()
+
+        /*val mock = mock<UserDetailViewModel>()
+        mock.getUserRepository().initUser("John", 34)
+
+        val mock1 = mock<UserDetailViewModel> {
+            on{ getUserRepository().initUser()
+                getUserRepository().getUser().value?.name} doReturn "John"
         }
+
+        verify(mock1).getUserRepository().getUser().value?.name = "John"*/
     }
 
 }
